@@ -42,4 +42,4 @@ var EmployeeService = (function () {
     return EmployeeService;
 }());
 exports.EmployeeService = EmployeeService;
-//# sourceMappingURL=employee.service.js.map
+//# sourceMappingURL=student.service.js.map

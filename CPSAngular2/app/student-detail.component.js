@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var employee_service_1 = require('./employee.service');
+var student_service_1 = require('./student.service');
 var StudentDetailComponent = (function () {
     function StudentDetailComponent(_employeeService) {
         this._employeeService = _employeeService;
@@ -26,7 +26,7 @@ var StudentDetailComponent = (function () {
             selector: 'employee-detail',
             template: "<h2>Employee Details</h2>\n\t\t\t   <h3>{{errorMsg}}</h3>\n\t\t\t  <ul *ngFor=\"let employee of employees\">\n\t\t\t  \t<li>{{employee.id}}. {{employee.name}} - {{employee.gender}}</li>\n\t\t\t  </ul>"
         }), 
-        __metadata('design:paramtypes', [employee_service_1.EmployeeService])
+        __metadata('design:paramtypes', [student_service_1.EmployeeService])
     ], StudentDetailComponent);
     return StudentDetailComponent;
 }());
