@@ -15,25 +15,30 @@ require('rxjs/add/operator/map');
 require('rxjs/add/operator/catch');
 require('rxjs/add/observable/throw');
 var EmployeeService = (function () {
-    /*private _url: string = "apidata/employeeData1.json"*/
     function EmployeeService(_http) {
         this._http = _http;
         this._url = "apidata/employeeData.json";
+        this._addStudentURL = "http://localhost:8080/CPSSpringMVC3/student/addStudent";
     }
     EmployeeService.prototype.getEmployees = function () {
-        /*return [
-                    {"id":1, "name": "Andrew", "gender": "Male"},
-                    {"id":2, "name": "Brandon", "gender": "Male"},
-                    {"id":3, "name": "Christina", "gender": "Female"},
-                    {"id":4, "name": "Elena", "gender": "Female"}
-                ]*/
         return this._http.get(this._url)
             .map(function (response) { return response.json(); })
+            .catch(this._errorHandler);
+    };
+    EmployeeService.prototype.addStudent = function (userForm) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post(this._addStudentURL, JSON.stringify(userForm), { headers: headers })
+            .map(function (data) { return data.json(); })
             .catch(this._errorHandler);
     };
     EmployeeService.prototype._errorHandler = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error || "Server Error");
+    };
+    EmployeeService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body || {};
     };
     EmployeeService = __decorate([
         core_1.Injectable(), 

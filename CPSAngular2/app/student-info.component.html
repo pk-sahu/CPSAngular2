@@ -1,0 +1,61 @@
+
+<div class="container">
+	<h2>Student Information</h2>
+	<form [formGroup]="userForm" (ngSubmit)="addStudent()" class="form-horizontal">
+		<div class="form-group" >
+			<label class="control-label col-xs-2">Student Name:</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" formControlName="stdName">	
+			</div>		
+		</div>
+		<div class="form-group" >
+			<label class="control-label col-xs-2">Father's Name:</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" formControlName="fatherName">
+			</div>
+		</div>
+		<div class="form-group" >
+			<label class="control-label col-xs-2">Mother's Name:</label>
+			<div class="col-xs-10">
+				<input type="text" class="form-control" formControlName="motherName">
+			</div>
+		</div>
+		<div formGroupName="address">
+			<div class="form-group" >
+				<label class="control-label col-xs-2">Residence Address:</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" formControlName="resiAddress">
+				</div>
+			</div>
+			<div class="form-group" >
+				<label class="control-label col-xs-2">City:</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" formControlName="city">
+				</div>
+			</div>
+			<div class="form-group" >
+				<label class="control-label col-xs-2">Village:</label>
+				<div class="col-xs-10">
+					<input type="text" class="form-control" formControlName="village">	
+				</div>			
+			</div>
+		</div>		
+		<div class="form-group">
+        	<div class="col-xs-offset-2 col-xs-10">	
+				<button  type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+			</div>
+    	</div>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <h1>Random Company</h1>
+<employee-list></employee-list>
+<employee-detail></employee-detail> -->

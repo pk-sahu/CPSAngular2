@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms'
 import { EmployeeService } from './student.service';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Random Company</h1>
-  			<employee-list></employee-list>
-  			<employee-detail></employee-detail>`,
-  providers: [EmployeeService]
+  template: `<student-create></student-create>`
   
 })
-export class AppComponent { }
+export class AppComponent { 
+}
