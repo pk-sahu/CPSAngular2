@@ -10,25 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var employee_service_1 = require('./employee.service');
-var EmployeeListComponent = (function () {
-    function EmployeeListComponent(_employeeService) {
+var StudentListComponent = (function () {
+    function StudentListComponent(_employeeService) {
         this._employeeService = _employeeService;
         this.employees = [];
     }
-    EmployeeListComponent.prototype.ngOnInit = function () {
+    StudentListComponent.prototype.ngOnInit = function () {
         var _this = this;
         /*this.employees = this._employeeService.getEmployees();*/
         this._employeeService.getEmployees()
             .subscribe(function (resEmployeeData) { return _this.employees = resEmployeeData; }, function (resEmployeeError) { return _this.errorMsg = resEmployeeError; });
     };
-    EmployeeListComponent = __decorate([
+    StudentListComponent = __decorate([
         core_1.Component({
             selector: 'employee-list',
             template: "<h2>Employee List</h2>\n\t\t\t   <h3>{{errorMsg}}</h3>\n\t\t\t  <ul *ngFor=\"let employee of employees\">\n\t\t\t  \t<li>{{employee.name}}</li>\n\t\t\t  </ul>"
         }), 
         __metadata('design:paramtypes', [employee_service_1.EmployeeService])
-    ], EmployeeListComponent);
-    return EmployeeListComponent;
+    ], StudentListComponent);
+    return StudentListComponent;
 }());
-exports.EmployeeListComponent = EmployeeListComponent;
+exports.StudentListComponent = StudentListComponent;
 //# sourceMappingURL=employee-list.component.js.map
