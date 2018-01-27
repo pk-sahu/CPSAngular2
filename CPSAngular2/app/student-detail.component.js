@@ -31,4 +31,4 @@ var StudentDetailComponent = (function () {
     return StudentDetailComponent;
 }());
 exports.StudentDetailComponent = StudentDetailComponent;
-//# sourceMappingURL=employee-detail.component.js.map
+//# sourceMappingURL=student-detail.component.js.map

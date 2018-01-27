@@ -13,14 +13,14 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var employee_list_component_1 = require('./employee-list.component');
-var employee_detail_component_1 = require('./employee-detail.component');
+var student_detail_component_1 = require('./student-detail.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, employee_detail_component_1.EmployeeDetailComponent],
+            declarations: [app_component_1.AppComponent, employee_list_component_1.EmployeeListComponent, student_detail_component_1.StudentDetailComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

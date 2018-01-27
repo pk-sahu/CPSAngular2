@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule }      from '@angular/http';
 import { AppComponent }   from './app.component';
 import { EmployeeListComponent } from './employee-list.component'
-import { EmployeeDetailComponent } from './employee-detail.component'
+import { StudentDetailComponent } from './student-detail.component'
 
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule ],
-  declarations: [ AppComponent, EmployeeListComponent, EmployeeDetailComponent ],
+  declarations: [ AppComponent, EmployeeListComponent, StudentDetailComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

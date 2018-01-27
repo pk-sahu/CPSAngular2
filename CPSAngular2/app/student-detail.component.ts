@@ -11,7 +11,7 @@ import { EmployeeService } from './employee.service';
 
 })
 
-export class EmployeeDetailComponent implements OnInit{
+export class StudentDetailComponent implements OnInit{
 	employees = [];
     errorMsg: string;
 	constructor(private _employeeService : EmployeeService){}
