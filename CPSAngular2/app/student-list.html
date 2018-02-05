@@ -1,0 +1,33 @@
+<div class="container">
+ 	 <h2>List Of Student</h2>
+ 	 <h3>{{errorMsg}}</h3>
+	 	 <table id="studentListId" class="table table-striped table-bordered dt-responsive nowrap" >
+	    <thead>
+	      <tr>
+	      	<th>Select Row</th>
+	        <th>Student Name</th>
+	        <th>Father's Name</th>
+	        <th>Mother's Name</th>
+	        <th>Residence Address</th>
+	        <th>City</th>
+	        <th>Village</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr *ngFor="let employee of employees; let idx = index">
+	        <td><input type="radio" name="radiogroup" (change)="onSelectionChange(employee)" [checked]="(idx === 0)" [value]="employee.stdId"></td>
+ 	        <td>{{employee.stdName}}</td>
+	        <td>{{employee.fatherName}}</td>
+	        <td>{{employee.motherName}}</td>
+	        <td>{{employee.resiAddress}}</td>
+	        <td>{{employee.city}}</td>
+	        <td>{{employee.village}}</td>
+	      </tr>
+	    </tbody>	    
+	  </table>	 
+	  <button  type="submit" (click)="editStudentDetail(selectedEntry)" class="btn btn-primary">Edit Student Detail</button> 
+</div>
+
+<pre>
+{{ this.selectedEntry | json }}
+</pre> 

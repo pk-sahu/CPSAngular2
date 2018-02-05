@@ -17,11 +17,12 @@ require('rxjs/add/observable/throw');
 var EmployeeService = (function () {
     function EmployeeService(_http) {
         this._http = _http;
-        this._url = "apidata/employeeData.json";
         this._addStudentURL = "http://localhost:8080/CPSSpringMVC3/student/addStudent";
+        this._editStudentURL = "http://localhost:8080/CPSSpringMVC3/student/editStudent";
+        this._getStudentListURL = "http://localhost:8080/CPSSpringMVC3/student";
     }
     EmployeeService.prototype.getEmployees = function () {
-        return this._http.get(this._url)
+        return this._http.get(this._getStudentListURL)
             .map(function (response) { return response.json(); })
             .catch(this._errorHandler);
     };
@@ -29,6 +30,13 @@ var EmployeeService = (function () {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
         return this._http.post(this._addStudentURL, JSON.stringify(userForm), { headers: headers })
+            .map(function (data) { return data.json(); })
+            .catch(this._errorHandler);
+    };
+    EmployeeService.prototype.updateStudent = function (userForm) {
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post(this._editStudentURL, JSON.stringify(userForm), { headers: headers })
             .map(function (data) { return data.json(); })
             .catch(this._errorHandler);
     };

@@ -12,17 +12,25 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
 var student_list_component_1 = require('./student-list.component');
 var student_detail_component_1 = require('./student-detail.component');
 var student_create_component_1 = require('./student-create.component');
+var student_edit_component_1 = require('./student-edit.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.ReactiveFormsModule],
-            declarations: [app_component_1.AppComponent, student_list_component_1.StudentListComponent, student_detail_component_1.StudentDetailComponent, student_create_component_1.StudentCreateComponent],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.ReactiveFormsModule,
+                router_1.RouterModule.forRoot([
+                    { path: '', component: app_component_1.AppComponent },
+                    { path: 'addStudent', component: student_create_component_1.StudentCreateComponent },
+                    { path: 'viewStudent', component: student_list_component_1.StudentListComponent },
+                    { path: 'editStudent', component: student_edit_component_1.StudentEditComponent }
+                ])],
+            declarations: [app_component_1.AppComponent, student_list_component_1.StudentListComponent, student_detail_component_1.StudentDetailComponent, student_create_component_1.StudentCreateComponent, student_edit_component_1.StudentEditComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

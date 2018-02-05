@@ -4,8 +4,11 @@ import { EmployeeService } from './student.service';
 
 @Component({
   selector: 'my-app',
-  template: `<student-create></student-create>`
+  templateUrl : 'app/app.component.html'
   
 })
 export class AppComponent { 
+    
+    
 }
+

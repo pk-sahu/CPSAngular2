@@ -10,23 +10,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var student_service_1 = require('./student.service');
+var router_1 = require('@angular/router');
+var core_2 = require('@angular/core');
 var StudentListComponent = (function () {
-    function StudentListComponent(_employeeService) {
+    //rootNode: any;
+    function StudentListComponent(_employeeService, router, rootNode) {
         this._employeeService = _employeeService;
+        this.router = router;
         this.employees = [];
+        this.selectedEntry = {
+            stdId: null,
+            stdName: null,
+            fatherName: null,
+            address: {
+                resiAddress: null,
+                city: null,
+                village: null
+            }
+        };
+        //jQuery(document).ready(() => {
+        //   $('#studentListId').DataTable();
+        // });    
+        // this.rootNode = rootNode;
     }
     StudentListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        /*this.employees = this._employeeService.getEmployees();*/
         this._employeeService.getEmployees()
             .subscribe(function (resEmployeeData) { return _this.employees = resEmployeeData; }, function (resEmployeeError) { return _this.errorMsg = resEmployeeError; });
+        // $('#studentListId').DataTable();
+    };
+    StudentListComponent.prototype.onSelectionChange = function (entry) {
+        //this.selectedEntry = Object.assign({}, this.selectedEntry, entry);
+        this.selectedEntry.stdId = entry.stdId;
+        this.selectedEntry.stdName = entry.stdName;
+        this.selectedEntry.fatherName = entry.fatherName;
+        this.selectedEntry.address.resiAddress = entry.resiAddress;
+        this.selectedEntry.address.city = entry.city;
+        this.selectedEntry.address.village = entry.village;
+    };
+    StudentListComponent.prototype.editStudentDetail = function (selectedEntry) {
+        this.router.navigate(['/editStudent', selectedEntry]);
     };
     StudentListComponent = __decorate([
         core_1.Component({
             selector: 'employee-list',
-            template: "<h2>Employee List</h2>\n\t\t\t   <h3>{{errorMsg}}</h3>\n\t\t\t  <ul *ngFor=\"let employee of employees\">\n\t\t\t  \t<li>{{employee.name}}</li>\n\t\t\t  </ul>"
+            templateUrl: 'app/student-list.html',
+            providers: [student_service_1.EmployeeService]
         }), 
-        __metadata('design:paramtypes', [student_service_1.EmployeeService])
+        __metadata('design:paramtypes', [student_service_1.EmployeeService, router_1.Router, core_2.ElementRef])
     ], StudentListComponent);
     return StudentListComponent;
 }());

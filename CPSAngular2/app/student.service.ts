@@ -7,12 +7,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 @Injectable()
 export class EmployeeService{
-	private _url: string = "apidata/employeeData.json"
-    private _addStudentURL: string = "http://localhost:8080/CPSSpringMVC3/student/addStudent"
+	private _addStudentURL: string = "http://localhost:8080/CPSSpringMVC3/student/addStudent";
+    private _editStudentURL: string = "http://localhost:8080/CPSSpringMVC3/student/editStudent"
+    private _getStudentListURL: string = "http://localhost:8080/CPSSpringMVC3/student";
 	
     constructor(private _http: Http){}
 	getEmployees(){
-		return this._http.get(this._url)
+		return this._http.get(this._getStudentListURL)
 			.map((response: Response) => response.json())
 			.catch(this._errorHandler);
 	}
@@ -21,6 +22,14 @@ export class EmployeeService{
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         return this._http.post(this._addStudentURL, JSON.stringify(userForm), { headers: headers })
+                   .map((data: Response) => data.json())
+                   .catch(this._errorHandler);
+    }
+    
+    updateStudent(userForm: FormGroup){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this._http.post(this._editStudentURL, JSON.stringify(userForm), { headers: headers })
                    .map((data: Response) => data.json())
                    .catch(this._errorHandler);
     }
